@@ -27,9 +27,9 @@ const NavBar = () => {
           <Link to="/" className="btn btn-ghost text-xl">DevTinder</Link>
         </div>
         { user && (
-        <div className="flex gap-2">
-            <div className="mt-2">Welcome {user.firstName}!</div>
-            <div className="dropdown dropdown-end mx-4 flex">
+        <div className="flex">
+            <div className="mt-2">Welcome <span className='text-purple-400'>{user.firstName}</span>!</div>
+            <div className="dropdown dropdown-end mx-4 flex ">
             <div
               tabIndex={0}
               role="button"
@@ -44,16 +44,18 @@ const NavBar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-10 w-42 p-2 shadow"
             >
               <li> 
                 <Link to="/profile"  className="justify-between">
                   Profile
-                  <span className="badge">New</span>
                 </Link>
               </li>
               <li>
-                <a>Settings</a>
+                <Link to="/connections">Connections</Link>
+              </li>
+              <li>
+                <Link to="/requests">Requests</Link>
               </li>
               <li>
                 <a onClick={handelLogout}>Logout</a>
